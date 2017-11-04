@@ -1,0 +1,7 @@
+vendor
+.env
+.idea/
+node_modules
+composer.lock
+storage/session/
+tests

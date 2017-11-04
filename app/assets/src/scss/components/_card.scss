@@ -1,0 +1,62 @@
+$border-style: 1px solid rgba(#000, 0.08);
+
+.card-horizontal {
+  font-size: 0;
+  border-bottom: $border-style;
+  position: relative;
+  background-color: #fff;
+
+  &:first-child {
+    border-top: $border-style;
+  }
+  &.no-start-border:first-child {
+    border-top: 0;
+  }
+  &.no-end-border {
+    border-bottom: 0;
+  }
+
+  .cover, .content {
+    display: inline-block;
+  }
+
+  .cover {
+    width: 30%;
+  }
+
+  .content {
+    vertical-align: top;
+    width: 70%;
+    font-size: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
+
+.bottom-card {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 6px;
+  background-color: #fff;
+  border-top: 1px solid rgba(#000, 0.04);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.fieldset-card {
+  font-size: 14px;
+  background-color: #fff;
+  margin: 0 auto 10px;
+  padding: 0 10px;
+  border: 0;
+
+  .lengend, .field {
+    border-bottom: $border-style;
+    padding: 6px 2px;
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}

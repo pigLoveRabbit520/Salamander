@@ -1,0 +1,40 @@
+.icon {
+  display: inline-block;
+  width: rem-calc(18px);
+  height: rem-calc(18px);
+  margin-right: rem-calc(8px);
+  background: transparent url('/img/icons.png') left top no-repeat;
+  background-size: 144px 18px;
+}
+
+.icon-account {
+  background-position: 0 0;
+}
+
+.icon-tank {
+  background-position: -18px 0;
+}
+
+.icon-service {
+  background-position: -36px 0;
+}
+
+.icon-gift {
+  background-position: -54px 0;
+}
+
+.icon-area {
+  background-position: -72px 0;
+}
+
+.icon-form {
+  background-position: -90px 0;
+}
+
+.icon-horn {
+  background-position: -108px 0;
+}
+
+.icon-cog {
+  background-position: -126px 0;
+}

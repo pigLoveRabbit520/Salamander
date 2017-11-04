@@ -1,0 +1,47 @@
+.form-field {
+  display: table;
+  width: 100%;
+  > label {
+    display: table-cell;
+    width: 64px;
+    vertical-align: middle;
+  }
+  > input {
+    display: table-cell;
+    width: 100%;
+    box-sizing: border-box;
+    height: 26px;
+    margin: auto;
+    padding: 2px;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: #0a0a0a;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+  }
+  > .value {
+    padding: 2px;
+    height: 26px;
+    box-sizing: border-box;
+  }
+
+
+  > input[type="radio"] {
+    vertical-align: middle;
+    margin: 12px;
+    width: 18px;
+    height: 18px;
+    appearance: none;
+    background-color: transparent;
+    background-image: none;
+    &:checked {
+      background-image: url(https://jiyinfile.reewoow.com/assets/sign_check.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+

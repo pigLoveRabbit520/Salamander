@@ -1,0 +1,14 @@
+//overwrite
+.slick-dots {
+  bottom: 5px;
+}
+
+.slide-dotted.slick-slider {
+  margin-bottom: 0;
+}
+
+.slick-dots li button:before,
+.slick-dots li.slick-active button:before {
+  color: #fff;
+}
+

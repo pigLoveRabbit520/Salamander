@@ -1,0 +1,37 @@
+# Your project's server will run on localhost:xxxx at this port
+PORT: 8000
+
+# Autoprefixer will make sure your CSS works with these browsers
+COMPATIBILITY:
+  - "last 2 versions"
+  - "ie >= 9"
+
+# UnCSS will use these settings
+UNCSS_OPTIONS:
+  html:
+    - "src/**/*.html"
+  ignore:
+    - !!js/regexp .foundation-mq
+    - !!js/regexp ^\.is-.*
+
+# Gulp will reference these paths when it copies files
+PATHS:
+  # Path to dist folder
+  dist: "../../public/"
+  # Paths to static assets that aren't images, CSS, or JavaScript
+  assets:
+    - "src/**/*"
+    - "!src/{img,js,scss}/**/*"
+  # Paths to Sass libraries, which can then be loaded with @import
+  sass:
+    - "node_modules/foundation-sites/scss"
+    # others
+    - "node_modules/fine-uploader/fine-uploader"
+  # Paths to JavaScript libraries, which are compined into one file
+  appjs:
+    # others
+    # Paths to your own project code are here
+    - "src/js/app/*.js"
+    - "src/js/app.js"
+  foundation-datepickerjs:
+    - "src/js/foundation-datepicker.js"

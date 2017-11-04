@@ -1,0 +1,22 @@
+.popup-full {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $main-background;
+  &.active {
+    display: block;
+  }
+  > .fieldset-card {
+    height: 100%;
+  }
+  .areas {
+    position: relative;
+    overflow: auto;
+    height: 100%;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+  }
+}
