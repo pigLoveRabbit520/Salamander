@@ -1,6 +1,6 @@
 {
-    "name": "salamander-mh",
-    "description": "A Slim Framework skeleton application for rapid development",
+    "name": "salamander",
+    "description": "A micro framework based on slim",
     "keywords": ["microframework", "rest", "router", "psr7"],
     "homepage": "http://github.com/slimphp/Slim-Skeleton",
     "license": "MIT",
