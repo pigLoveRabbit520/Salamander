@@ -9,9 +9,6 @@ function initWeb() {
     ini_set('memory_limit', '256M');
     set_time_limit(20);
     ini_set('session.name', 'SEOMANEGESESSION');
-    // session存入redis
-    ini_set('session.save_handler', 'redis');
-    ini_set('session.save_path', 'tcp://127.0.0.1:6379');
     ini_set('session.cookie_lifetime', 24 * 60 * 60);
     // 过期时间2个小时
     ini_set('session.gc_maxlifetime', 24 * 60 * 60);
