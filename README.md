@@ -21,7 +21,7 @@ location ~ \.php$ {
 ```
 2.安装PHP依赖
 ```
-compose install
+composer install
 ```
 
 
