@@ -33,4 +33,36 @@ class BaseController
         return $this->container->renderer->render($response, $template, $data);
     }
 
+    protected function error(Request $request, Response $response, $error) {
+        return $this->display($request, $response, 'error.html', [
+            'error' => $error,
+        ]);
+    }
+
+    /**
+     * 渲染分页
+     * @param $page
+     * @param $pageCount
+     * @param string $uri
+     */
+    protected function paginate($page, $pageCount, string $uri) {
+        $getArr = $_GET;
+        if(array_key_exists('page', $getArr)) {
+            unset($getArr['page']);
+        }
+        $params = http_build_query($getArr);
+        if($params) {
+            $jumpUrl = "{$uri}?{$params}&";
+        } else {
+            $jumpUrl = "{$uri}?";
+        }
+        ob_start();
+        include ($this->container['settings']['renderer']['template_path'] . 'pagination.html');
+        $pagination = ob_get_contents();
+        ob_end_clean();
+        $this->container->renderer->addAttribute('pagination', $pagination);
+    }
+
+
+
 }

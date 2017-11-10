@@ -1,0 +1,59 @@
+<ul class="pagination" role="navigation" aria-label="Pagination">
+    <?php if($pageCount > 1): ?>
+
+    <?php if($page > 1): ?>
+    <li class="pagination-previous"><a href="<?=$jumpUrl?>page=<?php echo ($page - 1);?>" aria-label="Previous page"></a></li>
+    <?php else: ?>
+    <li class="pagination-previous disabled"></li>
+    <?php endif; ?>
+
+    <?php if($page > 5): ?>
+
+    <?php foreach(range(1, 2) as $v ): ?>
+    <li><a href="<?=$jumpUrl?>page=<?=$v?>" aria-label="Page <?=$v?>"><?=$v?></a></li>
+    <?php endforeach;?>
+    <li class="ellipsis" aria-hidden="true"></li>
+    <?php foreach(range($page - 2, $page - 1) as $v ): ?>
+    <li><a href="<?=$jumpUrl?>page=<?=$v?>" aria-label="Page <?=$v?>"><?=$v?></a></li>
+    <?php endforeach;?>
+
+    <?php else: ?>
+
+    <?php if($page > 1): ?>
+    <?php foreach(range(1, $page - 1) as $v ): ?>
+    <li><a href="<?=$jumpUrl?>page=<?=$v?>" aria-label="Page <?=$v?>"><?=$v?></a></li>
+    <?php endforeach;?>
+    <?php endif;?>
+
+    <?php endif; ?>
+
+    <li class="current"><span class="show-for-sr">You're on page</span><?=$page?></li>
+
+
+    <?php if($pageCount - $page > 4): ?>
+    <?php foreach(range($page + 1, $page + 2) as $v ): ?>
+    <li><a href="<?=$jumpUrl?>page=<?=$v?>" aria-label="Page <?=$v?>"><?=$v?></a></li>
+    <?php endforeach;?>
+    <li class="ellipsis" aria-hidden="true"></li>
+    <?php foreach(range($pageCount - 1, $pageCount) as $v ): ?>
+    <li><a href="<?=$jumpUrl?>&page=<?=$v?>" aria-label="Page <?=$v?>"><?=$v?></a></li>
+    <?php endforeach;?>
+    <?php else: ?>
+
+    <?php if($pageCount - $page >= 1): ?>
+    <?php foreach(range($page + 1, $pageCount) as $v ): ?>
+    <li><a href="<?=$jumpUrl?>page=<?=$v?>" aria-label="Page <?=$v?>"><?=$v?></a></li>
+    <?php endforeach;?>
+    <?php endif;?>
+
+    <?php endif; ?>
+
+
+    <?php if($page < $pageCount): ?>
+    <li class="pagination-next"><a href="<?=$jumpUrl?>&page=<?php echo ($page + 1);?>" aria-label="Next page"></a></li>
+    <?php else: ?>
+    <li class="pagination-next disabled"></li>
+    <?php endif; ?>
+
+    <?php endif;?>
+</ul>
