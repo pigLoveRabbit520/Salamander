@@ -20,6 +20,7 @@ use App\Tool\Chkcode;
 class HomeController extends BaseController
 {
     public function index(Request $request, Response $response) {
+        var_dump($this->container->queryBuilder->table('article')->where('uid', '=', '1013')->first());
         return $this->display($request, $response, 'index.html');
     }
 

@@ -38,6 +38,11 @@ $container['db'] = function ($c) {
     return $db;
 };
 
+$container['queryBuilder'] = function ($c) {
+    $qb = (new \Pixie\Connection())->getQueryBuilderHandler('mysql', ['prefix' => ''], $c->db->getDBH());
+    return $qb;
+};
+
 $container['user'] = function ($c) {
     return new \App\Service\User($c);
 };

@@ -12,6 +12,9 @@ class DB
 {
     private $dsn;
     private $sth;
+    /**
+     * @var \PDO $dbh
+     */
     private $dbh;
     private $user;
     private $charset;
@@ -30,7 +33,7 @@ class DB
 
     private function connect()
     {
-        if(!$this->dbh){
+        if(!$this->dbh) {
             $options = array(
                 \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES ' . $this->charset,
             );
@@ -66,6 +69,12 @@ class DB
         }
     }
 
+    /**
+     * @param $sql
+     * @param array $parameters
+     * @return array
+     * @throws MySQLException
+     */
     public function fetchAll($sql, $parameters=[])
     {
         $result = [];
@@ -77,6 +86,13 @@ class DB
         return $result;
     }
 
+    /**
+     * @param $sql
+     * @param array $parameters
+     * @param int $position
+     * @return array
+     * @throws MySQLException
+     */
     public function fetchColumnAll($sql, $parameters=[], $position=0)
     {
         $result = [];
@@ -95,6 +111,12 @@ class DB
         return !empty($data);
     }
 
+    /**
+     * @param string $sql
+     * @param array $parameters
+     * @return int
+     * @throws MySQLException
+     */
     public function query($sql, $parameters=[])
     {
         $this->lastSQL = $sql;
@@ -103,6 +125,13 @@ class DB
         return $this->sth->rowCount();
     }
 
+    /**
+     * @param $sql
+     * @param array $parameters
+     * @param int $type
+     * @return mixed
+     * @throws MySQLException
+     */
     public function fetch($sql, $parameters=[], $type=\PDO::FETCH_ASSOC)
     {
         $this->lastSQL = $sql;
@@ -111,6 +140,13 @@ class DB
         return $this->sth->fetch($type);
     }
 
+    /**
+     * @param $sql
+     * @param array $parameters
+     * @param int $position
+     * @return mixed
+     * @throws MySQLException
+     */
     public function fetchColumn($sql, $parameters=[], $position=0)
     {
         $this->lastSQL = $sql;
@@ -148,6 +184,12 @@ class DB
         return $this->query($sql, $pdo_parameters);
     }
 
+    /**
+     * @param string $table
+     * @param array $parameters
+     * @return int|string
+     * @throws MySQLException
+     */
     public function insert($table, $parameters=[])
     {
         $table = $this->format_table_name($table);
@@ -174,6 +216,11 @@ class DB
     public function errorInfo()
     {
         return $this->sth->errorInfo();
+    }
+
+    public function getDBH()
+    {
+        return $this->dbh;
     }
 
     protected function format_table_name($table)
